@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C2E7695221A80FD0020689B /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E7694221A80FD0020689B /* CategoryTableViewController.swift */; };
+		7C2E7697221A813E0020689B /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E7696221A813E0020689B /* MenuTableViewController.swift */; };
+		7C2E7699221A81560020689B /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E7698221A81560020689B /* OrderTableViewController.swift */; };
+		7C2E769B221A83770020689B /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E769A221A83770020689B /* MenuItemDetailViewController.swift */; };
 		7CE1D613221174FD008A9991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE1D612221174FD008A9991 /* AppDelegate.swift */; };
 		7CE1D615221174FD008A9991 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE1D614221174FD008A9991 /* ViewController.swift */; };
 		7CE1D618221174FE008A9991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE1D616221174FE008A9991 /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C2E7694221A80FD0020689B /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		7C2E7696221A813E0020689B /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		7C2E7698221A81560020689B /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
+		7C2E769A221A83770020689B /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
 		7CE1D60F221174FD008A9991 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE1D612221174FD008A9991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CE1D614221174FD008A9991 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +50,7 @@
 				7CE1D610221174FD008A9991 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		7CE1D610221174FD008A9991 /* Products */ = {
 			isa = PBXGroup;
@@ -54,12 +63,16 @@
 		7CE1D611221174FD008A9991 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				7C2E7694221A80FD0020689B /* CategoryTableViewController.swift */,
 				7CE1D612221174FD008A9991 /* AppDelegate.swift */,
 				7CE1D614221174FD008A9991 /* ViewController.swift */,
 				7CE1D616221174FE008A9991 /* Main.storyboard */,
 				7CE1D61922117520008A9991 /* Assets.xcassets */,
 				7CE1D61B22117520008A9991 /* LaunchScreen.storyboard */,
 				7CE1D61E22117520008A9991 /* Info.plist */,
+				7C2E7696221A813E0020689B /* MenuTableViewController.swift */,
+				7C2E7698221A81560020689B /* OrderTableViewController.swift */,
+				7C2E769A221A83770020689B /* MenuItemDetailViewController.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -135,8 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2E7697221A813E0020689B /* MenuTableViewController.swift in Sources */,
+				7C2E769B221A83770020689B /* MenuItemDetailViewController.swift in Sources */,
+				7C2E7699221A81560020689B /* OrderTableViewController.swift in Sources */,
 				7CE1D615221174FD008A9991 /* ViewController.swift in Sources */,
 				7CE1D613221174FD008A9991 /* AppDelegate.swift in Sources */,
+				7C2E7695221A80FD0020689B /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
