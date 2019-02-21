@@ -67,16 +67,13 @@ class MenuTableViewController: UITableViewController {
 	
     // MARK: - Navigation
 
-	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "identifier" {
 	
 			if segue.identifier == "MenuDetailSegue" {
 				let menuItemDetailViewController = segue.destination as! MenuItemDetailViewController
 				let index = tableView.indexPathForSelectedRow!.row
 				menuItemDetailViewController.menuItem = menuItems[index]
 			}
-		}
     }
 	
 }
