@@ -213,11 +213,61 @@
                             <outlet property="delegate" destination="Xkq-Xj-WJf" id="yyN-aA-nKW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Order" id="4cM-3c-pCw"/>
+                    <navigationItem key="navigationItem" title="Your Order" id="4cM-3c-pCw">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="d5w-MI-8z0">
+                            <connections>
+                                <action selector="submitTapped:" destination="Xkq-Xj-WJf" id="1uK-OW-OIF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="69U-b9-cJu" kind="presentation" identifier="ConfirmationSegue" id="V6S-2W-bOJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3z-Pg-sTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1260" y="856.82158920539734"/>
+        </scene>
+        <!--Order Confirmation View Controller-->
+        <scene sceneID="Agl-Zu-Rbo">
+            <objects>
+                <viewController id="69U-b9-cJu" customClass="OrderConfirmationViewController" customModule="Restaurant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhi-v7-hnS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVp-k0-2jZ">
+                                <rect key="frame" x="16" y="323.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-2Z-m8i">
+                                <rect key="frame" x="160.5" y="352" width="54" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <segue destination="j8b-2a-kZM" kind="unwind" identifier="DismissConfirmation" unwindAction="unwindToOrderListWithSegue:" id="eAY-0A-238"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Bd-Ix-tqf" firstAttribute="trailing" secondItem="vVp-k0-2jZ" secondAttribute="trailing" constant="16" id="9PE-hS-moz"/>
+                            <constraint firstItem="vVp-k0-2jZ" firstAttribute="leading" secondItem="8Bd-Ix-tqf" secondAttribute="leading" constant="16" id="Hrk-t8-vGl"/>
+                            <constraint firstItem="xcC-2Z-m8i" firstAttribute="top" secondItem="vVp-k0-2jZ" secondAttribute="bottom" constant="8" id="Oa9-Pv-4Pu"/>
+                            <constraint firstItem="xcC-2Z-m8i" firstAttribute="centerX" secondItem="bhi-v7-hnS" secondAttribute="centerX" id="mj4-Gd-tqb"/>
+                            <constraint firstItem="vVp-k0-2jZ" firstAttribute="centerY" secondItem="bhi-v7-hnS" secondAttribute="centerY" id="z8N-ak-zkO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Bd-Ix-tqf"/>
+                    </view>
+                    <connections>
+                        <outlet property="timeRemainingLabel" destination="vVp-k0-2jZ" id="kuZ-eq-fI7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AR1-q5-VBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="j8b-2a-kZM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2133.5999999999999" y="856.82158920539734"/>
         </scene>
         <!--Your Order-->
         <scene sceneID="alq-BK-Mhy">
@@ -259,6 +309,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4hY-M6-DWa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GsX-vW-0eh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
