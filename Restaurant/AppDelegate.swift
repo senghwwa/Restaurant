@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 	
 	var orderTabBarItem: UITabBarItem!
+	var errorMessage: String = ""
 	
 	@objc func updateOrderBadge() {
 		switch MenuController.shared.order.menuItems.count {

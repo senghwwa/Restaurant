@@ -26,26 +26,24 @@ class MenuItemDetailViewController: UIViewController {
         
     }
     
-    func updateUI() {
-        titleLabel.text = menuItem.name
-        priceLabel.text = String(format: "$%.2f", menuItem.price)
-        detailTextLabel.text = menuItem.detailText
+	func updateUI() {
+		titleLabel.text = menuItem.name
+		priceLabel.text = String(format: "$%.2f", menuItem.price)
+		detailTextLabel.text = menuItem.detailText
 		MenuController.shared.fetchImage(url: menuItem.imageURL)
 		{ (image) in
-			guard let image = image else { return }
+			guard let image = image
+				else { MenuController.shared.showError(controller: self, errorTitle: "Error retrieving image")
+
+					return }
 			DispatchQueue.main.async {
 				self.imageView.image = image
 			}
 			
 		}
-    }
+	}
 
 	// MARK: - Navigation
-/*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	}
-	
-*/
 	
     @IBAction func orderButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
@@ -55,6 +53,5 @@ class MenuItemDetailViewController: UIViewController {
         }
 		MenuController.shared.order.menuItems.append(menuItem)
     }
-    
-    
+	    
 }

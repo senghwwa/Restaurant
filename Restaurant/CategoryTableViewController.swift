@@ -17,9 +17,11 @@ class CategoryTableViewController: UITableViewController {
 		super.viewDidLoad()
 	
 		MenuController.shared.fetchCategories(completion: {(categories) in
-		//menuController.fetchCategories(completion: {(categories) in
+			//menuController.fetchCategories(completion: {(categories) in
 			if let categories = categories {
 				self.updateUI(with: categories)
+			} else {
+				MenuController.shared.showError(controller: self, errorTitle: "Error retrieving categories")
 			}
 		}
 		)
@@ -56,8 +58,6 @@ class CategoryTableViewController: UITableViewController {
 		cell.textLabel?.text = categoryString.capitalized
 	}
 
-
-    
     // MARK: - Navigation
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

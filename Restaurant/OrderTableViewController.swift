@@ -46,7 +46,11 @@ class OrderTableViewController: UITableViewController {
 		cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
 		MenuController.shared.fetchImage(url: menuItem.imageURL)
 		{ (image) in
-			guard let image = image else { return }
+			guard let image = image else
+			{
+				MenuController.shared.showError(controller: self, errorTitle: "Error retrieving image")
+				return
+			}
 			DispatchQueue.main.async {
 				if let currentIndexPath = self.tableView.indexPath(for: cell),
 					currentIndexPath != indexPath {
@@ -58,47 +62,24 @@ class OrderTableViewController: UITableViewController {
 		}
 	}
 	
-	
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 60
 	}
 
-	
-    // Override to support editing the table view.
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 			MenuController.shared.order.menuItems.remove(at: indexPath.row)
-			// Delete the row from the data source
-            //tableView.deleteRows(at: [indexPath], with: .fade)
 			
         }
     }
 	
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
+	
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConfirmationSegue" {
             let orderConfirmationViewController = segue.destination as! OrderConfirmationViewController
@@ -136,12 +117,13 @@ class OrderTableViewController: UITableViewController {
                 if let minutes = minutes {
                     self.orderMinutes = minutes
                     self.performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
-                }
-            }
-            
-        }
+				} else {
+					MenuController.shared.showError(controller: self, errorTitle: "Error submitting order")
+				}
+			}
+		}
     }
-
+	
 }
 
 

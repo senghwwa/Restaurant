@@ -23,6 +23,9 @@ class MenuTableViewController: UITableViewController {
 			{(menuItems) in
 				if let menuItems = menuItems {
 					self.updateUI(with: menuItems)
+				} else {
+					MenuController.shared.showError(controller: self, errorTitle: "Error retrieving menu items")
+
 				}
 			}
 		)
@@ -69,7 +72,11 @@ class MenuTableViewController: UITableViewController {
 		cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
 		MenuController.shared.fetchImage(url: menuItem.imageURL)
 		{ (image) in
-			guard let image = image else { return }
+			guard let image = image
+				else {
+					MenuController.shared.showError(controller: self, errorTitle: "Error retrieving image")
+					return
+			}
 			DispatchQueue.main.async {
 				if let currentIndexPath = self.tableView.indexPath(for: cell),
 					currentIndexPath != indexPath {

@@ -17,7 +17,6 @@
 		7C2E76A3221A890B0020689B /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E76A2221A890B0020689B /* MenuController.swift */; };
 		7CD9718A221E824000A14B76 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD97189221E824000A14B76 /* OrderConfirmationViewController.swift */; };
 		7CE1D613221174FD008A9991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE1D612221174FD008A9991 /* AppDelegate.swift */; };
-		7CE1D615221174FD008A9991 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE1D614221174FD008A9991 /* ViewController.swift */; };
 		7CE1D618221174FE008A9991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE1D616221174FE008A9991 /* Main.storyboard */; };
 		7CE1D61A22117520008A9991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE1D61922117520008A9991 /* Assets.xcassets */; };
 		7CE1D61D22117520008A9991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE1D61B22117520008A9991 /* LaunchScreen.storyboard */; };
@@ -35,7 +34,6 @@
 		7CD97189221E824000A14B76 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		7CE1D60F221174FD008A9991 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE1D612221174FD008A9991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CE1D614221174FD008A9991 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CE1D617221174FE008A9991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE1D61922117520008A9991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CE1D61C22117520008A9991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,19 +72,18 @@
 			isa = PBXGroup;
 			children = (
 				7CE1D612221174FD008A9991 /* AppDelegate.swift */,
-				7CE1D614221174FD008A9991 /* ViewController.swift */,
-				7CE1D616221174FE008A9991 /* Main.storyboard */,
-				7CD97189221E824000A14B76 /* OrderConfirmationViewController.swift */,
 				7CE1D61922117520008A9991 /* Assets.xcassets */,
 				7CE1D61B22117520008A9991 /* LaunchScreen.storyboard */,
 				7CE1D61E22117520008A9991 /* Info.plist */,
 				7C2E7694221A80FD0020689B /* CategoryTableViewController.swift */,
 				7C2E769E221A873B0020689B /* IntermediaryModels.swift */,
-				7C2E769C221A85780020689B /* MenuItem.swift */,
-				7C2E7696221A813E0020689B /* MenuTableViewController.swift */,
-				7C2E769A221A83770020689B /* MenuItemDetailViewController.swift */,
-				7C2E76A0221A87B00020689B /* Order.swift */,
+				7CE1D616221174FE008A9991 /* Main.storyboard */,
 				7C2E76A2221A890B0020689B /* MenuController.swift */,
+				7C2E769C221A85780020689B /* MenuItem.swift */,
+				7C2E769A221A83770020689B /* MenuItemDetailViewController.swift */,
+				7C2E7696221A813E0020689B /* MenuTableViewController.swift */,
+				7C2E76A0221A87B00020689B /* Order.swift */,
+				7CD97189221E824000A14B76 /* OrderConfirmationViewController.swift */,
 				7C2E7698221A81560020689B /* OrderTableViewController.swift */,
 			);
 			path = Restaurant;
@@ -170,7 +167,6 @@
 				7C2E76A1221A87B00020689B /* Order.swift in Sources */,
 				7C2E7699221A81560020689B /* OrderTableViewController.swift in Sources */,
 				7C2E769F221A873B0020689B /* IntermediaryModels.swift in Sources */,
-				7CE1D615221174FD008A9991 /* ViewController.swift in Sources */,
 				7CE1D613221174FD008A9991 /* AppDelegate.swift in Sources */,
 				7CD9718A221E824000A14B76 /* OrderConfirmationViewController.swift in Sources */,
 				7C2E7695221A80FD0020689B /* CategoryTableViewController.swift in Sources */,
