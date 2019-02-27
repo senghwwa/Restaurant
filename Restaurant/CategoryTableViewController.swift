@@ -16,6 +16,7 @@ class CategoryTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	
+		/*
 		MenuController.shared.fetchCategories(completion: {(categories) in
 			//menuController.fetchCategories(completion: {(categories) in
 			if let categories = categories {
@@ -25,14 +26,26 @@ class CategoryTableViewController: UITableViewController {
 			}
 		}
 		)
+		*/
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: MenuController.menuDataUpdateNotification, object: nil)
+		
+		updateUI()
+	}
+
+	@objc func updateUI() {
+		categories = MenuController.shared.categories
+		tableView.reloadData()
 	}
 	
+	/*
 	func updateUI(with categories: [String]) {
 		DispatchQueue.main.async {
 			self.categories = categories
 			self.tableView.reloadData()
 		}
 	}
+	*/
 	
     // MARK: - Table view data source
 

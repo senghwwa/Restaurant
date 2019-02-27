@@ -35,6 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOrderBadge), name: MenuController.orderUpdatedNotification, object: nil)
 		
 		orderTabBarItem = (self.window!.rootViewController! as! UITabBarController).viewControllers![1].tabBarItem
+		
+		updateOrderBadge()
+		
+		MenuController.shared.loadOrder()
+		MenuController.shared.loadItems()
+		MenuController.shared.loadRemoteData()
+		
         return true
     }
 
@@ -46,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+		
+		MenuController.shared.saveOrder()
+		MenuController.shared.saveItems()
+		
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -60,6 +71,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+	
+	func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+		return true
+	}
 
+	func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+		return true
+	}
+
+	
 }
 

@@ -12,11 +12,12 @@ class MenuTableViewController: UITableViewController {
 
 	//let menuController = MenuController()
 	var menuItems = [MenuItem]()
-	var category: String!
+	var category: String?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		/*
 		title = category.capitalized
 		MenuController.shared.fetchMenuItems(forCategory: category, completion:
 		//menuController.fetchMenuItems(forCategory: category, completion:
@@ -29,13 +30,41 @@ class MenuTableViewController: UITableViewController {
 				}
 			}
 		)
+		*/
+		NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: MenuController.menuDataUpdateNotification, object: nil)
+		updateUI()
     }
+	
+	override func encodeRestorableState(with coder: NSCoder) {
+		super.encodeRestorableState(with: coder)
+		guard let category = category else { return }
+		coder.encode(category, forKey: "category")
+	}
 
+	override func decodeRestorableState(with coder: NSCoder) {
+		super.decodeRestorableState(with: coder)
+		
+		category = (coder.decodeObject(forKey: "category") as? String)
+		updateUI()
+	}
+	
+	/*
 	func updateUI(with menuItems: [MenuItem]) {
 		DispatchQueue.main.async {
 			self.menuItems = menuItems
 			self.tableView.reloadData()
 		}
+	}
+	*/
+	
+	@objc func updateUI() {
+
+		guard let category = category else { return }
+
+		title = category.capitalized
+		menuItems = MenuController.shared.items(forCategory: category) ?? []
+
+		tableView.reloadData()
 	}
 	
     // MARK: - Table view data source
